@@ -71,7 +71,7 @@
             <div class="skill-item"><i class="fab fa-aws"></i> AWS (5 years)</div> 
             <div class="skill-item"><i class="fas fa-database"></i> DB (7 years)</div>
             <div class="skill-item"><i class="fab fa-python"></i> Python (2 years)</div>
-            <div class="skill-item"><i class="fab fa-google-cloud"></i> GCP (2 years)</div>
+            <div class="skill-item"><i class="fa fa-cloud"></i> GCP (2 years)</div>
             <div class="skill-item"><i class="fab fa-php"></i> PHP (2 years)</div>
         </div>
     </section>
@@ -143,4 +143,10 @@
 </div>
 
 <footer>
-    <p>&copy;
+    <p>&copy; <span id="year"></span> <a style="text-decoration:none; color:inherit" href="http://slimdestro.com">Mukul Kumar</a></p>
+   
+</footer>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
