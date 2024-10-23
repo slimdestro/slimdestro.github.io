@@ -10,29 +10,36 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f4f6f9;
-            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             color: #333;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .header {
             background-color: #007bff;
             color: white;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 10px 10px 0 0;
             text-align: center;
-            margin-bottom: 30px;
         }
 
         .section {
-            margin-bottom: 40px;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
         }
 
         .skills-list {
@@ -42,7 +49,7 @@
 
         .skills-list li {
             display: inline-block;
-            margin-right: 15px;
+            margin-right: 10px;
             padding: 5px 10px;
             background-color: #007bff;
             color: white;
@@ -52,17 +59,14 @@
         footer {
             text-align: center;
             padding: 15px;
-            background-color: #343a40;
-            color: white;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            margin-top: 20px;
+            color: #666;
         }
     </style>
 </head>
 
 <body>
-    <div class="container mt-5">
+    <div class="container">
         <div class="header">
             <h1>Mukul Kumar</h1>
             <h2>Golang & Python Engineer</h2>
@@ -95,23 +99,23 @@
 
         <div class="section">
             <h3>Experience</h3>
-            <h5>Coforge Limited (formerly NIIT) - Technical Analyst</h5>
+            <h4>Coforge Limited - Technical Analyst</h4>
             <p><em>July 2023 – February 2024</em></p>
             <p>Worked on Python for a top client including Goldman Sachs.</p>
 
-            <h5>IDC/LTTS, Pune - Senior Software Engineer</h5>
+            <h4>IDC/LTTS, Pune - Senior Software Engineer</h4>
             <p><em>March 2022 - December 2022</em></p>
             <p>Worked on Python and ReactJS with AWS CI/CD, Docker, Kubernetes, and Postgres.</p>
 
-            <h5>R-Systems - Project Lead</h5>
+            <h4>R-Systems - Project Lead</h4>
             <p><em>June 2021 – September 2021</em></p>
             <p>Developed CXM and ETL pipelines in Golang using gRPC and Kafka.</p>
 
-            <h5>Freelance Engineer</h5>
+            <h4>Freelance Engineer</h4>
             <p><em>December 2017 – February 2020</em></p>
             <p>Worked on 40+ projects including migrations between AWS and GCP.</p>
 
-            <h5>Techpro Compsoft - Sr. Software Engineer</h5>
+            <h4>Techpro Compsoft - Sr. Software Engineer</h4>
             <p><em>November 2016 – November 2017</em></p>
             <p>Built CXM and ETL pipelines in Golang.</p>
         </div>
