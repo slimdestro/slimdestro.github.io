@@ -23,10 +23,24 @@ ul {
     list-style: none;
     padding: 0;
 }
-li {
-    background: #e7f3ff;
+.skill{
+    border: 2px solid #949090;
+    padding: 4px;
+    width:max-content;
+    border-radius: 3px;
+    font-size: smaller;
+}
+@media (max-width: 768px) {
+    .skill {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+}
+
+li { 
     margin: 5px 0;
-    padding: 10px;
+    padding: 5px;
     border-radius: 4px;
 }
 .contact {
@@ -96,4 +110,51 @@ footer {
     .contact h1, .contact h2, .contact p, .buttons {
         display: block;
     }
+}
+
+
+.toggle-image {
+    margin-top: 5px;
+    padding: 8px 12px;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.toggle-image:hover { background-color: #005bb5; }
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+.close-btn:hover { color: #ccc; }
+ul ul {
+    list-style-type: disc;
+    margin-left: 40px;
 }
