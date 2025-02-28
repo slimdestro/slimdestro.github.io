@@ -77,8 +77,18 @@
             <div class="skill-item"><i class="fas fa-database"></i> Databases (7 years)</div>
             <div class="skill-item"><i class="fab fa-python"></i> Python (2 years)</div>
             <div class="skill-item"><i class="fa fa-cloud"></i> GCP (3 years)</div>
-            <div class="skill-item"><i class="fab fa-php"></i> Kubernetes (4 years)</div>
-            
+            <div class="skill-item"><i class="fa-brands fa-docker"></i> Kubernetes (4 years)</div>
+            <div class="skill-item"><i class="fa-solid fa-cube"></i> Terraform (2 years)</div>
+            <div class="skill-item"><i class="fa-solid fa-gears"></i> Jenkins (3 years)</div>
+            <div class="skill-item"><i class="fa-brands fa-git-alt"></i> Git (6 years)</div>
+
+            <div class="skill-item"><i class="fa-brands fa-php"></i> PHP (3 years)</div>
+            <div class="skill-item"><i class="fa-solid fa-code"></i> CodeIgniter (2 years)</div>
+            <div class="skill-item"><i class="fa-brands fa-symfony"></i> Symfony (1 year)</div>
+            <div class="skill-item"><i class="fa-brands fa-rust"></i> Rust (1 year)</div>
+            <div class="skill-item"><i class="fa-brands fa-react"></i> React (1 year)</div>
+            <div class="skill-item"><i class="fa-brands fa-js"></i> jQuery (3 years)</div>
+
         </div>
        
     </section>
@@ -103,18 +113,6 @@
                 <a href="https://github.com/slimdestro" class="btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                 
             </div>
-            <li>
-                <strong>Stored Procedures Migration</strong>  
-                <div class="label skill"><i class="fab fa-aws"></i> AWS Lambda | EventBridge | RDS | Flask | CloudWatch</div>  
-                <p>Migrated legacy stored procedures to a serverless AWS architecture for real-time execution and validation.</p>
-                <ul>
-                    <li>Replaced RDS stored procedures with AWS Lambda, improving maintainability and scalability.</li>
-                    <li>Orchestrated real-time workflows using AWS EventBridge for event-driven execution.</li>
-                    <li>Integrated API Gateway for seamless interaction with the UI and scheduled jobs.</li>
-                    <li>Implemented Amazon SNS for event notifications and AWS CloudWatch for logging and monitoring.</li>
-                </ul>
-                <button class="toggle-image" onclick="openPopup('images/sp_migration_aws_lambda.png')">View Architecture</button>
-            </li>
             
             <li>
                 <strong>Carrier Lookup Microservices</strong>  
@@ -200,6 +198,19 @@
                 </ul>
             </li>
             <li>
+                <strong>Stored Procedures Migration</strong>  
+                <div class="label skill"><i class="fab fa-aws"></i> AWS Lambda | EventBridge | RDS | Flask | CloudWatch</div>  
+                <p>Migrated legacy stored procedures to a serverless AWS architecture for real-time execution and validation.</p>
+                <ul>
+                    <li>Replaced RDS stored procedures with AWS Lambda, improving maintainability and scalability.</li>
+                    <li>Orchestrated real-time workflows using AWS EventBridge for event-driven execution.</li>
+                    <li>Integrated API Gateway for seamless interaction with the UI and scheduled jobs.</li>
+                    <li>Implemented Amazon SNS for event notifications and AWS CloudWatch for logging and monitoring.</li>
+                </ul>
+                <button class="toggle-image" onclick="openPopup('images/sp_migration_aws_lambda.png')">View Architecture</button>
+            </li>
+           
+            <li>
                 <strong>AI-Native Microservices on Kubernetes</strong>  
                 <span class="label skill"><i class="fab fa-aws"></i> AWS | EKS | Wazuh | SQL | Grafana</span>  
                 <p>Designed a scalable, AI-driven microservices architecture to enhance enterprise automation securely.</p>
@@ -212,9 +223,6 @@
                 </ul>
                 <button class="toggle-image" onclick="openPopup('images/wazuh_ai_driven_design.jpg')">View Architecture</button>
             </li>
- 
-        
-            
         </ul>
     </section>
     
@@ -270,6 +278,43 @@
     function closePopup() {
         document.getElementById("imagePopup").style.display = "none";
     }
+    
+    document.addEventListener('DOMContentLoaded', function () {
+    const toggleButton = document.createElement('span');
+    toggleButton.innerHTML = '<i class="fas fa-plus-circle"></i> <span>Secondary skills</span>';
+    toggleButton.style.display = 'flex';
+    toggleButton.style.alignItems = 'center';
+    toggleButton.style.gap = '8px';
+    toggleButton.style.cursor = 'pointer';
+
+    toggleButton.classList.add('toggle-php-skills');
+
+    const skillsGrid = document.querySelector('.skills-grid');
+    const hiddenSkills = [...skillsGrid.querySelectorAll('.skill-item:nth-last-child(-n+9)')];
+
+    hiddenSkills.forEach(skill => {
+        skill.style.display = 'none';
+        skill.style.transition = 'all 0.3s ease-in-out';
+    });
+
+    const firstSkillItem = skillsGrid.querySelector('.skill-item');
+    if (firstSkillItem) {
+        toggleButton.style.color = window.getComputedStyle(firstSkillItem).color;
+    }
+
+    skillsGrid.appendChild(toggleButton);
+
+    toggleButton.addEventListener('click', function () {
+        const isHidden = hiddenSkills[0].style.display === 'none';
+        hiddenSkills.forEach(skill => {
+            skill.style.display = isHidden ? 'block' : 'none';
+        });
+        toggleButton.innerHTML = isHidden
+            ? '<i class="fas fa-minus-circle"></i> <span>Secondary skills</span>'
+            : '<i class="fas fa-plus-circle"></i> <span>Secondary skills</span>';
+    });
+});
+
 </script>
 
 </body>
