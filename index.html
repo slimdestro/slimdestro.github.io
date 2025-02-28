@@ -53,7 +53,7 @@
         <h1>Mukul Kumar</h1>
         <h2>Golang & AWS Engineer</h2>
         
-        <button class="toggle-btn">Profile Summary <i class="fas fa-chevron-up"></i></button>
+        <button class="toggle-btn">Profile Summary <i class="fas fa-chevron-down"></i></button>
         <div class="profile-summary" style="display: none;">
             <p>
                 I am Mukul, a seasoned full-stack backend developer specializing Golang and AWS. My expertise lies in building high-performance backends and cloud-native microservices, leveraging technologies like AWS Lambda, Docker, Kafka, and SQS to deliver efficient, scalable solutions.
@@ -237,25 +237,27 @@
 </div>
 
 <footer>
-    <p>&copy; <span id="year"></span> <a style="text-decoration:none; color:inherit" href="http://slimdestro.com">Mukul Kumar</a></p>
+    <p>&copy; <span id="year"></span> <a style="text-decoration:none; color:inherit" href="https://slimdestro.github.io/">Mukul Kumar</a></p>
 </footer>
 
 <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-    
+
     document.addEventListener('DOMContentLoaded', function() {
         const toggleButton = document.querySelector('.toggle-btn');
         const profileSummary = document.querySelector('.profile-summary'); 
+        const chevronIcon = toggleButton.querySelector('i');
+
         profileSummary.style.display = 'none';
-        toggleButton.innerHTML = 'Profile Summary <i class="fas fa-chevron-up"></i>';
+        chevronIcon.style.transition = 'transform 0.3s ease-in-out';
 
         toggleButton.addEventListener('click', function() {
             if (profileSummary.style.display === 'none' || profileSummary.style.display === '') {
                 profileSummary.style.display = 'block';
-                toggleButton.innerHTML = 'Hide Profile Summary <i class="fas fa-chevron-down"></i>';
+                chevronIcon.style.transform = 'rotate(180deg)';
             } else {
                 profileSummary.style.display = 'none';
-                toggleButton.innerHTML = 'Profile Summary <i class="fas fa-chevron-up"></i>';
+                chevronIcon.style.transform = 'rotate(0deg)';
             }
         });
     });
