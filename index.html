@@ -50,7 +50,7 @@
 <div class="container">
     
     <section class="contact">
-        <h1>Mukul Kumar Mishra</h1>
+        <h1 class="title">Mukul Kumar Mishra</h1>
         <h2>Golang & AWS Engineer</h2>
         
         <button class="toggle-btn">Profile Summary <i class="fas fa-chevron-down"></i></button>
@@ -71,6 +71,7 @@
     
     <section class="professional-skills">
         <h3>Professional Skills</h3>
+
         <div class="skills-grid">
             <div class="skill-item"><i class="fab fa-golang"></i> Golang (5 years)</div>
             <div class="skill-item"><i class="fab fa-aws"></i> AWS (5 years)</div> 
@@ -93,12 +94,18 @@
        
     </section>
 
-    <section class="highly-skilled-projects">
+    <section class="highly-skilled-projects"  >
         <h3>Recent Projects</h3>
-        <ul>
+        <input type="text" id="projectSearch" class="search-box" placeholder="Search by techStack..." onkeyup="filterProjects()">
+
+        <ul id="skillsGrid">
+            <div id="noResultsMessage" style="display: none; color: white; background-color: red; padding: 10px; text-align: center; margin-top: 10px; border-radius: 5px;">
+                No projects found.
+            </div>
+            
             <li>
                 <strong>Scalable Video Streaming on GCP</strong>  
-                <div class="label skill"><i class="fab fa-golang"></i> Golang | FFmpeg | GCP | HLS</div>  
+                <span class="label skill"><i class="fab fa-golang"></i> Golang | FFmpeg | GCP | HLS</span>  
                 <p>Designed and deployed an adaptive bitrate video streaming pipeline on Google Cloud.</p>  
                 <ul>  
                     <li>Implemented FFmpeg-based live and VOD streaming with HLS and MPEG-DASH.</li>  
@@ -116,7 +123,7 @@
             
             <li>
                 <strong>Carrier Lookup Microservices</strong>  
-                <div class="label skill"><i class="fab fa-golang"></i> Golang | GCP | Docker | Redis | GKE</div>  
+                <span class="label skill"><i class="fab fa-golang"></i> Golang | GCP | Docker | Redis | GKE</span>  
                 <p>Developed a high-performance microservices-based lookup system for CNAM, LRN, HLR, and carrier lookups.</p>
                 <ul>
                     <li>Leveraged GCP's GKE for scalable container orchestration.</li>
@@ -345,6 +352,24 @@
             : '<i class="fas fa-plus-circle"></i> <span>Secondary skills</span>';
     });
 });
+
+function filterProjects() {
+    let input = document.getElementById("projectSearch").value.toLowerCase();
+    let projectItems = document.querySelectorAll("#skillsGrid > li");
+    let noResultsMessage = document.getElementById("noResultsMessage");
+    let hasResults = false;
+
+    projectItems.forEach(item => {
+        let techStack = item.querySelector(".label.skill")?.textContent.toLowerCase() || "";
+        let matches = techStack.includes(input);
+
+        item.style.display = matches ? "" : "none";
+        if (matches) hasResults = true;
+    });
+
+    // Show "No projects found" if no matches
+    noResultsMessage.style.display = hasResults ? "none" : "block";
+}
 
 </script>
 
