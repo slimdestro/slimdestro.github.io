@@ -176,8 +176,7 @@ ul ul {
   
 .search-box {
     margin-bottom: 15px;
-    width: 100%;
-    max-width: 400px;
+    width: 95%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -190,4 +189,10 @@ ul ul {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 10px;
+}
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+    padding: 2px 4px;
+    border-radius: 4px;
 }

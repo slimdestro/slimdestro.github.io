@@ -54,7 +54,7 @@
         <h2>Golang & AWS Engineer</h2>
         
         <button class="toggle-btn">Profile Summary <i class="fas fa-chevron-down"></i></button>
-        <div class="profile-summary" style="display: none;">
+        <div class="profile-summary">
             <p>
                 I am Mukul, a seasoned full-stack backend developer specializing Golang and AWS. My expertise lies in building high-performance backends and cloud-native microservices, leveraging technologies like AWS Lambda, Docker, Kafka, and SQS to deliver efficient, scalable solutions.
             </p>
@@ -293,12 +293,11 @@
         const toggleButton = document.querySelector('.toggle-btn');
         const profileSummary = document.querySelector('.profile-summary'); 
         const chevronIcon = toggleButton.querySelector('i');
-
-        profileSummary.style.display = 'none';
+ 
         chevronIcon.style.transition = 'transform 0.3s ease-in-out';
 
         toggleButton.addEventListener('click', function() {
-            if (profileSummary.style.display === 'none' || profileSummary.style.display === '') {
+            if (profileSummary.style.display === 'none') {
                 profileSummary.style.display = 'block';
                 chevronIcon.style.transform = 'rotate(180deg)';
             } else {
@@ -318,58 +317,73 @@
     }
     
     document.addEventListener('DOMContentLoaded', function () {
-    const toggleButton = document.createElement('span');
-    toggleButton.innerHTML = '<i class="fas fa-plus-circle"></i> <span>Secondary skills</span>';
-    toggleButton.style.display = 'flex';
-    toggleButton.style.alignItems = 'center';
-    toggleButton.style.gap = '8px';
-    toggleButton.style.cursor = 'pointer';
+        const toggleButton = document.createElement('span');
+        toggleButton.innerHTML = '<i class="fas fa-plus-circle"></i> <span>Secondary skills</span>';
+        toggleButton.style.display = 'flex';
+        toggleButton.style.alignItems = 'center';
+        toggleButton.style.gap = '8px';
+        toggleButton.style.cursor = 'pointer';
 
-    toggleButton.classList.add('toggle-php-skills');
+        toggleButton.classList.add('toggle-php-skills');
 
-    const skillsGrid = document.querySelector('.skills-grid');
-    const hiddenSkills = [...skillsGrid.querySelectorAll('.skill-item:nth-last-child(-n+9)')];
+        const skillsGrid = document.querySelector('.skills-grid');
+        const hiddenSkills = [...skillsGrid.querySelectorAll('.skill-item:nth-last-child(-n+9)')];
 
-    hiddenSkills.forEach(skill => {
-        skill.style.display = 'none';
-        skill.style.transition = 'all 0.3s ease-in-out';
-    });
-
-    const firstSkillItem = skillsGrid.querySelector('.skill-item');
-    if (firstSkillItem) {
-        toggleButton.style.color = window.getComputedStyle(firstSkillItem).color;
-    }
-
-    skillsGrid.appendChild(toggleButton);
-
-    toggleButton.addEventListener('click', function () {
-        const isHidden = hiddenSkills[0].style.display === 'none';
         hiddenSkills.forEach(skill => {
-            skill.style.display = isHidden ? 'block' : 'none';
+            skill.style.display = 'none';
+            skill.style.transition = 'all 0.3s ease-in-out';
         });
-        toggleButton.innerHTML = isHidden
-            ? '<i class="fas fa-minus-circle"></i> <span>Secondary skills</span>'
-            : '<i class="fas fa-plus-circle"></i> <span>Secondary skills</span>';
-    });
-});
 
-function filterProjects() {
+        const firstSkillItem = skillsGrid.querySelector('.skill-item');
+        if (firstSkillItem) {
+            toggleButton.style.color = window.getComputedStyle(firstSkillItem).color;
+        }
+
+        skillsGrid.appendChild(toggleButton);
+
+        toggleButton.addEventListener('click', function () {
+            const isHidden = hiddenSkills[0].style.display === 'none';
+            hiddenSkills.forEach(skill => {
+                skill.style.display = isHidden ? 'block' : 'none';
+            });
+            toggleButton.innerHTML = isHidden
+                ? '<i class="fas fa-minus-circle"></i> <span>Secondary skills</span>'
+                : '<i class="fas fa-plus-circle"></i> <span>Secondary skills</span>';
+        });
+    });
+
+    function filterProjects() {
     let input = document.getElementById("projectSearch").value.toLowerCase();
+    
     let projectItems = document.querySelectorAll("#skillsGrid > li");
     let noResultsMessage = document.getElementById("noResultsMessage");
     let hasResults = false;
 
     projectItems.forEach(item => {
-        let techStack = item.querySelector(".label.skill")?.textContent.toLowerCase() || "";
+        
+        let techStackElement = item.querySelector(".label.skill");
+        let techStack = techStackElement?.textContent.toLowerCase() || "";
         let matches = techStack.includes(input);
 
         item.style.display = matches ? "" : "none";
-        if (matches) hasResults = true;
+        if (matches) {
+            hasResults = true;
+            let originalHTML = techStackElement.textContent;
+            let highlightedHTML = originalHTML.replace(
+                new RegExp(input, "gi"),
+                (match) => `<span class="highlight">${match}</span>`
+            );
+            if(input){
+                techStackElement.innerHTML = highlightedHTML;
+            }else{
+                techStackElement.innerHTML = techStackElement.textContent;
+            }
+        }
     });
 
-    // Show "No projects found" if no matches
     noResultsMessage.style.display = hasResults ? "none" : "block";
 }
+
 
 </script>
 
