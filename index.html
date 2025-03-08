@@ -183,6 +183,37 @@
                 </ul>
             </li>
             
+            <li>
+                <strong>Automated Email System with Supabase & Postmark</strong>  
+                <span class="label skill"><i class="fas fa-database"></i> Supabase | Postmark | Edge Functions </span>  
+                <p>Designed a robust email automation system leveraging Supabase for deal tracking and Postmark for high-volume email delivery.</p>
+                <ul>
+                    <li>Utilized Supabase PostgreSQL for deal management, ensuring real-time updates with Row-Level Security (RLS).</li>
+                    <li>Implemented Supabase Edge Functions to handle webhook-triggered email scheduling based on deal progress.</li>
+                    <li>Leveraged pg_cron to process thousands of scheduled emails daily, ensuring timely delivery.</li>
+                    <li>Designed a Redis-backed worker queue to manage high email throughput and prevent API rate limits.</li>
+                    <li>Integrated Postmark API for transactional and bulk email dispatch, ensuring 99.99% deliverability.</li>
+                    <li>Developed a deduplication mechanism using PostgreSQL locks to prevent duplicate emails per deal.</li>
+                    <li>Optimized email tracking with Postmark webhooks, storing delivery and open status in Supabase for analytics.</li>
+                    <li>Implemented a scalable retry strategy using delayed jobs to handle email failures dynamically.</li>
+                </ul>
+            </li>
+            
+            <li>
+                <strong>Kubernetes Operator Testing with Ginkgo & Kopf</strong>  
+                <span class="label skill"><i class="fab fa-golang"></i> Golang | Ginkgo | Kopf | Kubernetes</span>  
+                <p>Developed a standalone test suite using Ginkgo to validate a Kubernetes Custom Operator across multiple managed Kubernetes platforms.</p>
+                <ul>
+                    <li>Implemented Ginkgo-based BDD testing to ensure Kubernetes Operator correctness across ARO, ROSA, EKS, and AKS.</li>
+                    <li>Used Kopf (Kubernetes Operator Python Framework) or direct `kubectl` API calls within Golang to create, update, and delete CRDs for validation.</li>
+                    <li>Automated testing workflows to validate operator behavior under real-world scenarios, including failovers and upgrades.</li>
+                    <li>Ran tests directly against live cloud clusters instead of local KinD, ensuring real-world compatibility.</li>
+                    <li>Validated reconciliation logic, resource scaling, and state consistency across cloud providers.</li>
+                    <li>Integrated with CI/CD pipelines to automatically test operator changes before deployments.</li>
+                    <li>Ensured efficient cluster teardown and cleanup after each test execution to optimize cloud resource usage.</li>
+                </ul>
+            </li>
+            
             <div class="buttons">
                 <a href="https://dev.to/slimdestro" class="btn" target="_blank"><i class="fab fa-dev"></i> Dev.to</a>
             </div>
