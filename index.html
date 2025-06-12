@@ -261,9 +261,25 @@
                 </ul>
                 <button class="toggle-image" onclick="openPopup('images/sp_migration_aws_lambda.png')">View Architecture</button>
             </li>
+
+            <li>
+                <strong>Kong Gateway for VoD Access Control and Metadata Filtering</strong>
+                <span class="label skill"><i class="fab fa-golang"></i> Kong Gateway | Go | OTT</span>
+                <p>Designed and implemented a scalable Kong API gateway layer for ScreenSights’ global VoD data API to securely expose availability and metadata based on API key permissions.</p>
+                <ul>
+                    <li>Built a <strong>Go-based gRPC plugin server</strong> integrated with Kong to enforce per-consumer access rules on the <code>service</code> (VoD platform) query parameter.</li>
+                    <li>Implemented dynamic response filtering to expose only allowed metadata fields (e.g., <code>release_year</code>, <code>language</code>) per API key using deep JSON struct manipulation in Go.</li>
+                    <li>Proxied all traffic through Kong to <code>https://vod.screensights.io/v4/search/basic</code>, with full support for query params like <code>country</code>, <code>service</code>, and <code>type</code>.</li>
+                    <li>Designed API key segmentation to support hundreds of consumers with isolated platform access, future onboarding, and precise RBAC policies.</li>
+                    <li>Enabled rate limiting, usage logging, and forward-compatible rules using Kong’s built-in plugins combined with the custom Go service logic.</li>
+                </ul>
+                <button class="toggle-image" onclick="openPopup('images/kong_go_vod_gateway.png')">View Architecture</button>
+            </li>
+
+
             <li>
                 <strong>Secure Document Verification & E-Signing Platform</strong>
-                <span class="label skill"><i class="fab fa-python"></i> Python | Flask | Celery | OpenCV | AWS S3 | PostgreSQL | Redis</span>
+                <span class="label skill"><i class="fab fa-python"></i> Python | Flask | Redis</span>
                 <p>Developed a high-trust digital document workflow system for legally binding e-signatures and multi-stage document verification with biometric validation.</p>
                 <ul>
                     <li>Built a <strong>Flask-based API gateway</strong> to handle secure document uploads, versioning, and digital signature orchestration with audit logging.</li>
