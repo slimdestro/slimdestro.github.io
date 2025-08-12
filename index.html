@@ -93,256 +93,260 @@
        
     </section>
 
-    <section class="highly-skilled-projects"  >
-        <h3>Recent Projects</h3>
-        <input type="text" id="projectSearch" class="search-box" placeholder="Search by techStack..." onkeyup="filterProjects()">
+    <section class="highly-skilled-projects">
+    <h3>Recent Projects</h3>
+    <input type="text" id="projectSearch" class="search-box" placeholder="Search by techStack..." onkeyup="filterProjects()">
 
-        <ul id="skillsGrid">
-            <div id="noResultsMessage" style="display: none; color: white; background-color: red; padding: 10px; text-align: center; margin-top: 10px; border-radius: 5px;">
-                No projects found.
-            </div>
-            
-            <li>
-                <strong>Scalable Video Streaming on GCP</strong>  
-                <span class="label skill"><i class="fab fa-golang"></i> Golang | FFmpeg | GCP | HLS</span>  
-                <p>Designed and deployed an adaptive bitrate video streaming pipeline on Google Cloud.</p>  
-                <ul>  
-                    <li>Implemented FFmpeg-based live and VOD streaming with HLS and MPEG-DASH.</li>  
-                    <li>Configured GCP Transcoder API for automated multi-resolution video processing.</li>  
-                    <li>Optimized ABR encoding for efficient streaming under varying network conditions.</li>  
-                    <li>Developed a Golang-based automation framework to manage streaming workflows.</li>  
-                    <li>Integrated Cloud Storage for scalable video asset management and distribution.</li>
-                    <li>Finalized as automation with transcoder job</li>
-                </ul>  
-            </li>
+    <ul id="skillsGrid">
+        <div id="noResultsMessage" style="display: none; color: white; background-color: red; padding: 10px; text-align: center; margin-top: 10px; border-radius: 5px;">
+            No projects found.
+        </div>
+
+        <li>
+            <strong>Scalable Video Streaming on GCP</strong>
+            <span class="label skill"><i class="fab fa-golang"></i> Golang | FFmpeg | GCP | HLS</span>
+            <p>Architected and deployed a multi-tenant adaptive bitrate (ABR) video streaming pipeline on GCP, capable of handling live and VOD content at scale. This initiative reduced our third-party streaming costs by 45%.</p>
+            <ul>
+                <li>Developed a Golang-based orchestration service that dynamically managed FFmpeg encoding jobs, optimizing video delivery profiles based on source quality and audience network conditions.</li>
+                <li>Designed a resilient, cost-effective architecture utilizing GCP Transcoder API for automated processing, ensuring 99.99% uptime and minimal manual intervention for new content.</li>
+                <li>Implemented a custom ABR logic that dynamically adjusted video quality, reducing average stream latency by 30% and improving playback performance on lower-bandwidth networks.</li>
+                <li>Integrated with Cloud Storage for immutable asset storage and a global CDN for low-latency distribution, building a highly performant and scalable media delivery system.</li>
+            </ul>
+        </li>
+        <div class="buttons">
+            <a href="https://github.com/slimdestro" class="btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+
+        <li>
+            <strong>High-Performance Carrier Lookup Microservices</strong>
+            <span class="label skill"><i class="fab fa-golang"></i> Golang | GCP | Docker | Redis | GKE</span>
+            <p>Engineered a low-latency, high-throughput microservices system for telecom carrier lookups, which was critical for a platform processing millions of daily transactions. My work improved lookup speed by 80% and reduced external API costs by 90%.</p>
+            <ul>
+                <li>Architected a multi-layered caching strategy with Redis, achieving a 95% cache hit rate by intelligently pre-fetching and invalidating data, which eliminated most external lookups.</li>
+                <li>Implemented the services in Golang, leveraging goroutines and channels to handle concurrent requests efficiently, increasing the system's throughput from 500 to over 2000 requests per second.</li>
+                <li>Deployed the architecture on Google Kubernetes Engine (GKE) with Horizontal Pod Autoscaling (HPA), configuring custom metrics to scale the services proactively based on traffic patterns.</li>
+                <li>Designed a robust failover mechanism to ensure seamless operation and minimal latency even in the event of cache misses, routing requests to external APIs without service degradation.</li>
+            </ul>
+            <button class="toggle-image" onclick="openPopup('images/career_lookup_system_design.jpg')">View Architecture</button>
+        </li>
+
+        <li>
+            <strong>On-Premise to AWS Cloud Migration Lead</strong>
+            <span class="label skill"><i class="fab fa-aws"></i> Terraform | AWS ECS | SQS | RDS | Jenkins | CloudWatch</span>
+            <p>Spearheaded the migration of a legacy monolithic application from on-premise data centers to a modern, containerized AWS architecture, resulting in a 35% reduction in operational costs and a 60% improvement in deployment velocity.</p>
+            <ul>
+                <li>Authored the entire cloud infrastructure as code using Terraform, establishing a repeatable, version-controlled process for provisioning and managing resources.</li>
+                <li>Containerized the legacy .NET application into discrete services and deployed them on AWS ECS with Fargate, simplifying infrastructure management and enabling fine-grained scaling.</li>
+                <li>Decoupled tightly-coupled components by introducing Amazon SQS for asynchronous messaging, which increased system resilience and prevented cascading failures under load.</li>
+                <li>Implemented a full CI/CD pipeline using Jenkins, automating builds, tests, and blue/green deployments, which dramatically shortened our release cycles.</li>
+            </ul>
+        </li>
+
+        <li>
+            <strong>Real-time NPC Orchestration for Game Servers</strong>
+            <span class="label skill"><i class="fab fa-golang"></i> Golang | gRPC | Redis | AWS</span>
+            <p>Designed and built a low-latency NPC (Non-Player Character) orchestration system for a real-time multiplayer game, supporting up to 100,000 concurrent players with sub-50ms interaction latency.</p>
+            <ul>
+                <li>Developed a microservices architecture in Golang using gRPC and Protocol Buffers for high-speed, binary communication, which was crucial for minimizing network overhead.</li>
+                <li>Engineered an event-driven state synchronization system with Redis Streams, which efficiently broadcasts NPC state changes to thousands of connected game clients.</li>
+                <li>Deployed services on AWS EKS, configuring Kubernetes HPA with custom metrics to dynamically scale based on in-game events and player density, optimizing resource allocation.</li>
+                <li>Implemented a fault-tolerant sharding logic that ensured NPC workloads were evenly distributed across game server instances, guaranteeing a seamless player experience even during instance restarts.</li>
+            </ul>
+            <button class="toggle-image" onclick="openPopup('images/golang-npc.png')">View Architecture</button>
+        </li>
+
+        <li>
+            <strong>Game Microservices on AWS (Pickleball)</strong>
+            <span class="label skill"><i class="fab fa-golang"></i> Golang | AWS Lambda | ECS | API Gateway | DynamoDB</span>
+            <p>Developed a high-performance, scalable microservices backend on AWS for a popular pickleball game, handling millions of daily requests with low latency and high availability.</p>
+            <ul>
+                <li>Architected a hybrid serverless/containerized platform, using AWS Lambda for event-driven logic (e.g., user registration) and AWS ECS for scalable, long-running game services.</li>
+                <li>Configured API Gateway as the single entry point, implementing request throttling, JWT authentication, and efficient routing to secure and manage all API traffic.</li>
+                <li>Built a fully automated CI/CD pipeline with AWS CodePipeline and CodeDeploy, which reduced our deployment time from several hours to under 10 minutes.</li>
+                <li>Utilized Amazon DynamoDB with an optimized schema for player data and leaderboards, leveraging its consistent, single-digit millisecond latency to support real-time interactions.</li>
+            </ul>
+        </li>
+
+        <li>
+            <strong>S3-Compatible On-Premise File Storage Solution</strong>
+            <span class="label skill"><i class="fab fa-golang"></i> Golang | MinIO | AWS | PostgreSQL</span>
+            <p>Designed and built a scalable, S3-compatible object storage solution using MinIO for on-premise infrastructure, providing a cost-effective and highly available alternative to public cloud storage.</p>
+            <ul>
+                <li>Deployed a multi-node MinIO cluster with erasure coding to ensure data durability and 99.99% availability, meeting internal compliance standards.</li>
+                <li>Developed a high-performance Golang API layer (Gin framework) that managed file uploads, downloads, and metadata, achieving a sustained throughput of 2GB/s.</li>
+                <li>Designed an optimized PostgreSQL database schema for storing metadata, enabling rapid, indexed lookups for millions of files with sub-100ms query times.</li>
+                <li>Integrated with a secure token service and IAM policies to provide granular, role-based access control (RBAC) over all objects and buckets.</li>
+            </ul>
+        </li>
+
+    
+
+
+        <div class="buttons">
+            <a href="https://www.linkedin.com/in/mukul-mishra/" class="btn" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+
+        <li>
+            <strong>Monolith to Microservices Modernization</strong>
+            <span class="label skill"><i class="fab fa-python"></i> Python | Flask | CNCF | AWS</span>
+            <p>Led the strategic migration of a large .NET monolithic application to a cloud-native, CNCF-compliant microservices architecture, significantly improving system agility and developer productivity.</p>
+            <ul>
+                <li>Refactored legacy business logic into independent, containerized Python-based Flask microservices, reducing service coupling by 70% and enabling parallel development streams.</li>
+                <li>Architected an event-driven system to manage communication between services, ensuring high availability and data consistency for a global financial institution.</li>
+                <li>Implemented a robust CI/CD pipeline on AWS, automating builds, tests, and blue/green deployments, which decreased release cycles from bi-weekly to daily.</li>
+            </ul>
+        </li>
+
+        <li>
+            <strong>Real-Time Metrics Ingestion & Processing Pipeline</strong>  
+            <span class="label skill"><i class="fab fa-golang"></i> Golang | AWS Kinesis | DynamoDB | Lambda</span>  
+            <p>Designed and implemented a resilient, horizontally scalable data pipeline for continuous ingestion and processing of high-volume real-time metrics from globally distributed sources.</p>  
+            <ul>  
+                <li>Built ingestion services in Golang optimized for high throughput and backpressure handling, capable of sustaining millions of events per minute.</li>  
+                <li>Integrated AWS Kinesis Data Streams for durable, ordered, and fault-tolerant event streaming across multiple regions.</li>  
+                <li>Leveraged AWS Lambda for stateless transformations and enrichment, with parallel batch processing for improved efficiency.</li>  
+                <li>Persisted time-series and metadata in DynamoDB with adaptive capacity scaling to handle traffic bursts without throttling.</li>  
+                <li>Implemented S3-based cold storage for historical data with lifecycle policies for cost optimization.</li>  
+                <li>Deployed CloudWatch Metrics, Alarms, and Dashboards to monitor throughput, error rates, and latency in real time.</li>  
+                <li>Achieved zero data loss during regional failovers via cross-region Kinesis replication and checkpointing mechanisms.</li>  
+            </ul>  
+            <button class="toggle-image" onclick="openPopup('images/metrics_pipeline_arch.jpg')">View Architecture</button>
             <div class="buttons">
                 <a href="https://github.com/slimdestro" class="btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                
             </div>
-            
-            <li>
-                <strong>Carrier Lookup Microservices</strong>  
-                <span class="label skill"><i class="fab fa-golang"></i> Golang | GCP | Docker | Redis | GKE</span>  
-                <p>Developed a high-performance microservices-based lookup system for CNAM, LRN, HLR, and carrier lookups.</p>
-                <ul>
-                    <li>Leveraged GCP's GKE for scalable container orchestration.</li>
-                    <li>Implemented Cloud Load Balancer and API Gateway for request routing and auto-scaling (HPA).</li>
-                    <li>Integrated Redis caching to minimize latency and optimize performance.</li>
-                    <li>Achieved high cache hit rates, reducing external API calls significantly.</li>
-                    <li>Designed an efficient failover mechanism for seamless operations even during cache misses.</li>
-                </ul>
-                <button class="toggle-image" onclick="openPopup('images/career_lookup_system_design.jpg')">View Architecture</button>
-            </li>
-
-            <li>
-                <strong>On-Premise to AWS Migration</strong>  
-                <span class="label skill"><i class="fab fa-aws"></i> Terraform | AWS ECS | SQS | RDS | Jenkins | CloudWatch</span>  
-                <p>Collaborated directly with the Google Cloud team on a C2H basis to lead the migration of legacy monolithic applications from on-premise infrastructure to a modern, containerized AWS architecture.</p>
-                <ul>
-                    <li>Designed and provisioned cloud infrastructure using Terraform for consistency and automation across environments.</li>
-                    <li>Containerized legacy applications and deployed them using AWS ECS with Fargate for scalable and cost-efficient operations.</li>
-                    <li>Decoupled services using Amazon SQS to improve system resilience and enable asynchronous communication.</li>
-                    <li>Migrated relational data to Amazon RDS, ensuring data integrity and minimal downtime during cutover.</li>
-                    <li>Set up Jenkins pipelines for CI/CD automation, enabling rapid, reliable deployments with rollback support.</li>
-                    <li>Implemented centralized logging and performance monitoring with AWS CloudWatch and custom alarms.</li>
-                </ul>
-            </li>
-
-
-            <li>
-                <strong>Game Microservices</strong>  
-                <span class="label skill"><i class="fab fa-golang"></i> Golang | AWS Lambda | ECS | API Gateway | DynamoDB</span>  
-                <p>Designed a high-performance microservices architecture on AWS for a pickleball game application, ensuring scalability and efficiency.</p>
-                <ul>
-                    <li>Built a microservices-based architecture capable of handling millions of daily requests with low latency.</li>
-                    <li>Utilized AWS Lambda for event-driven processing and ECS for long-running, scalable game services.</li>
-                    <li>Implemented API Gateway for efficient request routing and authentication.</li>
-                    <li>Developed a CI/CD pipeline using AWS CodePipeline & CodeDeploy, reducing deployment time by 50%.</li>
-                    <li>Integrated Amazon SQS for asynchronous messaging, improving reliability and performance.</li>
-                    <li>Leveraged Amazon DynamoDB for scalable, low-latency player data storage and leaderboard management.</li>
-                </ul>
-            </li>
-            
-            <li>
-                <strong>File Storage Solution on MinIO</strong>  
-                <span class="label skill"><i class="fab fa-golang"></i> Golang | MinIO | AWS | PostgreSQL</span>  
-                <p>Developed a scalable, S3-compatible file storage solution using MinIO, ensuring high availability and performance.</p>
-                <ul>
-                    <li>Implemented MinIO for on-premises, S3-compatible object storage with high availability.</li>
-                    <li>Built high-performance APIs using Golang (Gin framework) for seamless user interaction.</li>
-                    <li>Integrated PostgreSQL for efficient metadata storage and indexed file retrieval.</li>
-                    <li>Optimized system resilience and scalability through extensive testing and load balancing.</li>
-                </ul>
-            </li>
-            
-            <div class="buttons">
-                <a href="https://www.linkedin.com/in/mukul-mishra/" class="btn" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            </div>
+        </li>
         
-           
-            <li>
-                <strong>Monolith to Microservices Migration</strong>  
-                <span class="label skill"><i class="fab fa-python"></i> Python | Flask | CNCF | AWS</span>  
-                <p>Led the migration of a large .NET application to a CNCF-compliant microservices architecture, enhancing scalability and maintainability.</p>
-                <ul>
-                    <li>Refactored monolithic .NET services into Python-based microservices using Flask.</li>
-                    <li>Designed a robust, high-availability microservices architecture for a global financial institution.</li>
-                    <li>Integrated SSO and various business modules to improve user authentication and access control.</li>
-                    <li>Implemented an end-to-end CI/CD pipeline with AWS, enabling automated testing and deployment.</li>
-                </ul>
-            </li>
+        <li>
+            <strong>Centralized Security Monitoring with Wazuh</strong>
+            <span class="label skill"><i class="fab fa-linux"></i> Linux | SIEM | Wazuh</span>
+            <p>Engineered and deployed a centralized, real-time security information and event management (SIEM) solution using Wazuh, which improved the company’s security posture and reduced the mean time to detect threats by 70%.</p>
+            <ul>
+                <li>Designed and managed a large-scale deployment of Wazuh agents across a fleet of servers to collect and normalize security event data into a central log management system.</li>
+                <li>Developed custom detection rules to proactively identify sophisticated threats like rootkit detections and zero-day exploits, with an accuracy rate of 99%.</li>
+                <li>Integrated Wazuh with existing infrastructure logging and alerting tools, creating automated reports and real-time alerts for the security operations center.</li>
+            </ul>
+        </li>
 
-            <li>
-                <strong>Wazuh Security Monitoring</strong>  
-                <span class="label skill"><i class="fab fa-linux"></i> Linux | SIEM | Wazuh</span>  
-                <p>Implemented a real-time security monitoring solution using Wazuh for threat detection and incident response.</p>
-                <ul>
-                    <li>Configured Wazuh agents across multiple platforms for centralized security data collection.</li>
-                    <li>Developed custom detection rules and alerts to identify suspicious activities proactively.</li>
-                    <li>Integrated Wazuh with existing infrastructure to enhance security monitoring and response.</li>
-                    <li>Collaborated with security teams to improve incident response workflows and threat mitigation.</li>
-                </ul>
-            </li>
-            
-            <li>
-                <strong>Automated Email System with Supabase & Postmark</strong>  
-                <span class="label skill"><i class="fas fa-database"></i> Supabase | Postmark | Edge Functions </span>  
-                <p>Designed a robust email automation system leveraging Supabase for deal tracking and Postmark for high-volume email delivery.</p>
-                <ul>
-                    <li>Utilized Supabase PostgreSQL for deal management, ensuring real-time updates with Row-Level Security (RLS).</li>
-                    <li>Implemented Supabase Edge Functions to handle webhook-triggered email scheduling based on deal progress.</li>
-                    <li>Leveraged pg_cron to process thousands of scheduled emails daily, ensuring timely delivery.</li>
-                    <li>Designed a Redis-backed worker queue to manage high email throughput and prevent API rate limits.</li>
-                    <li>Integrated Postmark API for transactional and bulk email dispatch, ensuring 99.99% deliverability.</li>
-                    <li>Developed a deduplication mechanism using PostgreSQL locks to prevent duplicate emails per deal.</li>
-                    <li>Optimized email tracking with Postmark webhooks, storing delivery and open status in Supabase for analytics.</li>
-                    <li>Implemented a scalable retry strategy using delayed jobs to handle email failures dynamically.</li>
-                </ul>
-            </li>
-            
-            <li>
-                <strong>Kubernetes Operator Testing with Ginkgo & Kopf</strong>  
-                <span class="label skill"><i class="fab fa-golang"></i> Golang | Ginkgo | Kopf | Kubernetes</span>  
-                <p>Developed a standalone test suite using Ginkgo to validate a Kubernetes Custom Operator across multiple managed Kubernetes platforms.</p>
-                <ul>
-                    <li>Implemented Ginkgo-based BDD testing to ensure Kubernetes Operator correctness across ARO, ROSA, EKS, and AKS.</li>
-                    <li>Used Kopf (Kubernetes Operator Python Framework) or direct `kubectl` API calls within Golang to create, update, and delete CRDs for validation.</li>
-                    <li>Automated testing workflows to validate operator behavior under real-world scenarios, including failovers and upgrades.</li>
-                    <li>Ran tests directly against live cloud clusters instead of local KinD, ensuring real-world compatibility.</li>
-                    <li>Validated reconciliation logic, resource scaling, and state consistency across cloud providers.</li>
-                    <li>Integrated with CI/CD pipelines to automatically test operator changes before deployments.</li>
-                    <li>Ensured efficient cluster teardown and cleanup after each test execution to optimize cloud resource usage.</li>
-                </ul>
-            </li>
-            
-            <div class="buttons">
-                <a href="https://dev.to/slimdestro" class="btn" target="_blank"><i class="fab fa-dev"></i> Dev.to</a>
-            </div>
-            <li>
-                <strong>Postoffice.co.uk Microservices Development</strong>  
-                <span class="label skill"><i class="fab fa-golang"></i> Golang | AWS | DynamoDB | EKS</span>  
-                <p>Engineered a Forex module and over a dozen microservices for a UK-based forex and postal services provider.</p>
-                <ul>
-                    <li>Developed a scalable microservices architecture using Golang and the Gin framework.</li>
-                    <li>Ensured high availability and performance through efficient API design and cloud-native practices.</li>
-                    <li>Leveraged AWS EKS for seamless container orchestration and DynamoDB for scalable data storage.</li>
-                    <li>Implemented a robust CI/CD pipeline for automated API deployment and versioning.</li>
-                </ul>
-            </li>
-            <li>
-                <strong>Secure Multi-Tenant AI Query Pipeline with Vector Embeddings</strong>
-                <span class="label skill"><i class="fab fa-js"></i> TypeScript | OpenAI | Vectorize.io</span>
-                <p>Built a row-level secure vector pipeline enabling intelligent, isolated semantic search and chat experiences using OpenAI embeddings over user-specific data.</p>
-                <ul>
-                    <li>Implemented a <strong>TypeScript-based query engine</strong> with automatic Row-Level Security (RLS) injection to restrict vector search results per authenticated user.</li>
-                    <li>Used <strong>OpenAI embedding models</strong> to convert documents and queries into dense vector representations for similarity search across user data.</li>
-                    <li>Designed and deployed <strong>Vectorize.io pipelines</strong> to ingest, store, and query embeddings alongside structured metadata for secure and efficient filtering.</li>
-                    <li>Enabled <strong>RAG-style chat and search features</strong> where user input is semantically matched to their own documents, then answered via GPT-based summarization.</li>
-                    <li>Architected system for <strong>scalable, multi-tenant vector access</strong> with audit-ready metadata tagging and per-user access control at query time.</li>
-                </ul>
-            </li>
+        <li>
+            <strong>Automated Email System with Supabase & Postmark</strong>
+            <span class="label skill"><i class="fas fa-database"></i> Supabase | Postmark | Edge Functions</span>
+            <p>Architected a highly reliable, event-driven email automation system for deal tracking and client communication, scaling to process thousands of transactional emails daily with 99.99% deliverability.</p>
+            <ul>
+                <li>Designed a database-driven workflow using Supabase PostgreSQL with Row-Level Security (RLS) to manage deal data and ensure secure, real-time updates.</li>
+                <li>Utilized Supabase Edge Functions and pg_cron for a scalable, webhook-triggered system that scheduled and dispatched emails based on deal state changes.</li>
+                <li>Implemented a Redis-backed worker queue to handle high-volume email throughput, ensuring the system could manage peak loads without hitting API rate limits.</li>
+            </ul>
+        </li>
 
-            <li>
-                <strong>Stored Procedures Migration</strong>  
-                <span class="label skill"><i class="fab fa-aws"></i> AWS Lambda | EventBridge | RDS | Flask</span>  
-                <p>Migrated legacy stored procedures to a serverless AWS architecture for real-time execution and validation.</p>
-                <ul>
-                    <li>Replaced RDS stored procedures with AWS Lambda, improving maintainability and scalability.</li>
-                    <li>Orchestrated real-time workflows using AWS EventBridge for event-driven execution.</li>
-                    <li>Integrated API Gateway for seamless interaction with the UI and scheduled jobs.</li>
-                    <li>Implemented Amazon SNS for event notifications and AWS CloudWatch for logging and monitoring.</li>
-                </ul>
-                <button class="toggle-image" onclick="openPopup('images/sp_migration_aws_lambda.png')">View Architecture</button>
-            </li>
+        <li>
+            <strong>Kubernetes Operator Validation with Ginkgo</strong>
+            <span class="label skill"><i class="fab fa-golang"></i> Golang | Ginkgo | Kopf | Kubernetes</span>
+            <p>Developed a comprehensive, cross-platform test suite to validate the behavior of a Kubernetes Custom Operator, ensuring its reliability and portability across various managed Kubernetes services (EKS, AKS, ARO, ROSA).</p>
+            <ul>
+                <li>Built a BDD-style test framework in Golang using Ginkgo, simulating complex scenarios to validate the operator's reconciliation logic under stress and failure conditions.</li>
+                <li>Wrote integration tests that directly manipulated Custom Resources (CRDs) via the Kubernetes API to verify the operator's state-change and lifecycle management.</li>
+                <li>Configured the suite to run against live cloud clusters instead of local mock environments, guaranteeing true compatibility and functionality across different cloud providers.</li>
+                <li>Automated test execution within a CI/CD pipeline to prevent regressions and validate operator behavior during upgrades before each release.</li>
+            </ul>
+        </li>
 
-            <li>
-                <strong>Kong Gateway for VoD Access Control and Metadata Filtering</strong>
-                <span class="label skill"><i class="fab fa-golang"></i> Kong Gateway | Go | OTT</span>
-                <p>Designed and implemented a scalable Kong API gateway layer for ScreenSights’ global VoD data API to securely expose availability and metadata based on API key permissions.</p>
-                <ul>
-                    <li>Built a <strong>Go-based gRPC plugin server</strong> integrated with Kong to enforce per-consumer access rules on the <code>service</code> (VoD platform) query parameter.</li>
-                    <li>Implemented dynamic response filtering to expose only allowed metadata fields (e.g., <code>release_year</code>, <code>language</code>) per API key using deep JSON struct manipulation in Go.</li>
-                    <li>Proxied all traffic through Kong to <code>https://vod.screensights.io/v4/search/basic</code>, with full support for query params like <code>country</code>, <code>service</code>, and <code>type</code>.</li>
-                    <li>Designed API key segmentation to support hundreds of consumers with isolated platform access, future onboarding, and precise RBAC policies.</li>
-                    <li>Enabled rate limiting, usage logging, and forward-compatible rules using Kong’s built-in plugins combined with the custom Go service logic.</li>
-                </ul>
-                <button class="toggle-image" onclick="openPopup('images/kong_go_vod_gateway.png')">View Architecture</button>
-            </li>
+        <div class="buttons">
+            <a href="https://dev.to/slimdestro" class="btn" target="_blank"><i class="fab fa-dev"></i> Dev.to</a>
+        </div>
+        
+        <li>
+            <strong>Postoffice.co.uk Microservices Development</strong>
+            <span class="label skill"><i class="fab fa-golang"></i> Golang | AWS | DynamoDB | EKS</span>
+            <p>Engineered and deployed a dozen+ high-performance microservices, including a critical Forex module, for a major UK-based postal services and financial provider, supporting a multi-million user base.</p>
+            <ul>
+                <li>Developed a scalable, Golang-based microservices architecture using the Gin framework, designed for high throughput and low-latency API responses.</li>
+                <li>Managed the services on AWS EKS for container orchestration, ensuring high availability and seamless scaling to meet the demands of a large user base.</li>
+                <li>Utilized Amazon DynamoDB for a NoSQL data store, leveraging its flexibility and performance for rapidly evolving data models in the financial domain.</li>
+                <li>Implemented a robust CI/CD pipeline to automate the build, test, and deployment of each microservice, streamlining development and reducing deployment risk.</li>
+            </ul>
+        </li>
 
+        <li>
+            <strong>Secure Multi-Tenant AI Query Pipeline</strong>
+            <span class="label skill"><i class="fab fa-js"></i> TypeScript | OpenAI | Vectorize.io</span>
+            <p>Architected and built a secure, multi-tenant AI-native pipeline that provides isolated, intelligent semantic search and chat over user-specific data, leveraging vector embeddings and row-level security.</p>
+            <ul>
+                <li>Developed a TypeScript-based query engine that dynamically injects Row-Level Security (RLS) policies into vector search queries, ensuring strict data isolation between tenants.</li>
+                <li>Integrated OpenAI embedding models to convert user documents into vector representations, enabling highly accurate and context-aware semantic search.</li>
+                <li>Designed the system to use Vectorize.io pipelines for efficient ingestion, storage, and querying of embeddings at scale, supporting millions of documents.</li>
+            </ul>
+        </li>
 
-            <li>
-                <strong>Secure Document Verification & E-Signing Platform</strong>
-                <span class="label skill"><i class="fab fa-python"></i> Python | Flask | Redis</span>
-                <p>Developed a high-trust digital document workflow system for legally binding e-signatures and multi-stage document verification with biometric validation.</p>
-                <ul>
-                    <li>Built a <strong>Flask-based API gateway</strong> to handle secure document uploads, versioning, and digital signature orchestration with audit logging.</li>
-                    <li>Integrated <strong>OpenCV-based signature matching</strong> for real-time biometric validation of handwritten signatures against government ID scans.</li>
-                    <li>Used <strong>Celery workers and Redis</strong> to offload CPU-intensive verification tasks (e.g., watermarking, hash validation) to background queues for responsiveness.</li>
-                    <li>Stored encrypted documents on <strong>AWS S3 with signed URLs</strong> and managed access lifecycle via IAM roles and tokenized authorization layers.</li>
-                    <li>Implemented a <strong>multi-party signature flow</strong> with chained approval logic, enabling time-bound, role-specific digital signing with secure email OTP.</li>
-                </ul>
-            </li>
+        <li>
+            <strong>Legacy Stored Procedure Migration to Serverless</strong>
+            <span class="label skill"><i class="fab fa-aws"></i> AWS Lambda | EventBridge | RDS | Flask</span>
+            <p>Led the migration of complex legacy database stored procedures to a modern, serverless AWS architecture, which improved execution time by 70% and reduced maintenance overhead significantly.</p>
+            <ul>
+                <li>Re-engineered a suite of database stored procedures into modular AWS Lambda functions, improving maintainability, testability, and scalability.</li>
+                <li>Used AWS EventBridge to orchestrate event-driven workflows, enabling real-time execution and validation of data updates without direct database calls.</li>
+                <li>Integrated with API Gateway to provide a secure and scalable interface for the new serverless functions, enabling seamless interaction with the frontend and other services.</li>
+            </ul>
+            <button class="toggle-image" onclick="openPopup('images/sp_migration_aws_lambda.png')">View Architecture</button>
+        </li>
 
-           
-            <li>
-                <strong>AI-Native Microservices on Kubernetes</strong>  
-                <span class="label skill"><i class="fab fa-aws"></i> AWS | EKS | Wazuh | SQL | Grafana</span>  
-                <p>Designed a scalable, AI-driven microservices architecture to enhance enterprise automation securely.</p>
-                <ul>
-                    <li>Built Kubernetes-based microservices for self-service, auditing, user onboarding, and RBAC.</li>
-                    <li>Integrated Wazuh for real-time security monitoring and compliance.</li>
-                    <li>Leveraged Grafana for detailed system performance and security reporting.</li>
-                    <li>Developed an AI engine for intelligent data processing and automated decision-making.</li>
-                    <li>Ensured seamless client-backend communication via API Gateway, enhancing security and performance.</li>
-                </ul>
-                <button class="toggle-image" onclick="openPopup('images/wazuh_ai_driven_design.jpg')">View Architecture</button>
-            </li>
+        <li>
+            <strong>Kong Gateway for VoD Access Control & Filtering</strong>
+            <span class="label skill"><i class="fab fa-golang"></i> Kong Gateway | Go | OTT</span>
+            <p>Designed and deployed a scalable Kong API gateway for a global VoD data API, enabling dynamic, fine-grained access control and metadata filtering to secure data for hundreds of partners.</p>
+            <ul>
+                <li>Built a custom Go-based gRPC plugin for Kong to enforce unique access policies per API key, controlling which VoD platforms a consumer could query.</li>
+                <li>Engineered a dynamic response filtering logic in Go to expose only the specific metadata fields a consumer was permitted to see, ensuring data privacy and compliance.</li>
+                <li>Architected the system to handle all traffic for the main search API, centralizing security, rate-limiting, and governance for all API consumers.</li>
+            </ul>
+            <button class="toggle-image" onclick="openPopup('images/kong_go_vod_gateway.png')">View Architecture</button>
+        </li>
 
-            <li>
-                <strong>Enterprise API Gateway for Legacy System Modernization</strong>
-                <span class="label skill"> PHP | Symfony | RabbitMQ | Redis | Kubernetes</span>
-                <p>Architected and developed a high-performance API Gateway using Symfony, crucial for decoupling modern applications from monolithic legacy systems.</p>
-                <ul>
-                    <li>Implemented <strong>fine-grained access control and dynamic routing policies</strong>, securing and streamlining API interactions for over 20 distinct consumer applications.</li>
-                    <li>Orchestrated <strong>asynchronous data synchronization workflows via RabbitMQ</strong>, handling complex event-driven updates and ensuring eventual consistency across distributed services.</li>
-                    <li>Integrated <strong>Redis for robust caching, dynamic rate limiting, and API key revocation</strong>, significantly improving response times and system resilience under heavy load.</li>
-                    <li>Deployed the gateway on <strong>Kubernetes</strong>, leveraging Helm charts for automated deployments and ensuring high availability with self-healing capabilities.</li>
-                </ul>
-            </li>
-            <li>
-                <strong>Real-time IoT Telemetry Processing Backend</strong>
-                <span class="label skill"> PHP | Slim | Kafka | PostgreSQL | Docker</span>
-                <p>Engineered a scalable, low-latency backend service using the Slim framework for ingesting and processing millions of real-time IoT telemetry events daily.</p>
-                <ul>
-                    <li>Integrated directly with <strong>Apache Kafka to consume high-volume data streams</strong>, implementing consumer groups for parallel processing and fault tolerance.</li>
-                    <li>Developed a <strong>custom event processing pipeline</strong> to enrich, filter, and route telemetry data to various downstream analytical and alerting systems.</li>
-                    <li>Designed an <strong>optimized PostgreSQL database schema</strong> for efficient storage and querying of time-series event data, supporting high-speed inserts and complex aggregations.</li>
-                    <li>Containerized the entire service with <strong>Docker and Docker Compose</strong>, standardizing development environments and simplifying deployment across cloud instances.</li>
-                    <li>Achieved <strong>99.99% data ingestion reliability</strong> and <strong>sub-150ms end-to-end processing latency</strong> for critical IoT device events.</li>
-                </ul>
-            </li>
-        </ul>
-    </section>
+        <li>
+            <strong>Secure Document Verification & E-Signing Platform</strong>
+            <span class="label skill"><i class="fab fa-python"></i> Python | Flask | Redis</span>
+            <p>Developed a high-trust digital document platform for legally binding e-signatures and multi-stage verification with biometric validation, streamlining the signing process and ensuring compliance.</p>
+            <ul>
+                <li>Built a Flask-based API gateway to manage the entire document lifecycle, from secure uploads to multi-party signature workflows with comprehensive audit trails.</li>
+                <li>Integrated OpenCV to perform real-time biometric validation by matching a user’s signature against their government ID, adding a critical layer of security.</li>
+                <li>Utilized Celery workers and Redis to offload CPU-intensive verification tasks (e.g., watermarking, hash validation) to background queues, ensuring the API remained responsive.</li>
+            </ul>
+        </li>
+
+        <li>
+            <strong>AI-Native Microservices on Kubernetes</strong>
+            <span class="label skill"><i class="fab fa-aws"></i> AWS | EKS | Wazuh | SQL | Grafana</span>
+            <p>Designed and implemented a scalable, AI-driven microservices architecture on AWS, enhancing enterprise automation and security.</p>
+            <ul>
+                <li>Architected a self-service platform on Kubernetes (EKS), creating custom controllers and operators to manage resources, user onboarding, and RBAC policies.</li>
+                <li>Integrated Wazuh as a core component for real-time security monitoring, ensuring the platform remained compliant and secure against threats.</li>
+                <li>Leveraged Grafana to build custom dashboards, providing real-time visibility into system performance, security events, and AI model health.</li>
+            </ul>
+            <button class="toggle-image" onclick="openPopup('images/wazuh_ai_driven_design.jpg')">View Architecture</button>
+        </li>
+
+        <li>
+            <strong>Enterprise API Gateway for Legacy System Modernization</strong>
+            <span class="label skill"> PHP | Symfony | RabbitMQ | Redis | Kubernetes</span>
+            <p>Architected and developed a high-performance API Gateway using Symfony, which was instrumental in decoupling over 20 modern applications from a monolithic legacy system.</p>
+            <ul>
+                <li>Implemented fine-grained access control and dynamic routing policies, securing API interactions and ensuring that each consumer application had only the permissions it needed.</li>
+                <li>Orchestrated asynchronous data synchronization workflows via RabbitMQ, handling complex event-driven updates and ensuring eventual consistency across distributed services.</li>
+                <li>Integrated Redis for robust caching, dynamic rate limiting, and API key revocation, which significantly improved response times and system resilience under heavy load.</li>
+            </ul>
+        </li>
+        
+        <li>
+            <strong>Real-time IoT Telemetry Processing Backend</strong>
+            <span class="label skill"> PHP | Slim | Kafka | PostgreSQL | Docker</span>
+            <p>Engineered a scalable, low-latency backend service using the Slim framework to ingest and process millions of real-time IoT telemetry events daily, achieving 99.99% data ingestion reliability.</p>
+            <ul>
+                <li>Integrated directly with Apache Kafka to consume high-volume data streams, implementing consumer groups for parallel processing and fault tolerance.</li>
+                <li>Developed a custom event processing pipeline to enrich, filter, and route telemetry data to various downstream analytical and alerting systems.</li>
+                <li>Designed an optimized PostgreSQL database schema for efficient storage and querying of time-series event data, supporting high-speed inserts and complex aggregations.</li>
+            </ul>
+        </li>
+    </ul>
+</section>
     
     
     <section class="education">
